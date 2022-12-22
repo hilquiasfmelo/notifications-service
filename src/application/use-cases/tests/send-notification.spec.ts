@@ -1,5 +1,5 @@
 import { InMemoryNotificationsRepository } from '@test/repositories/in-memory-notifications-repository';
-import { SendNotification } from './send-notification';
+import { SendNotification } from '../send-notification';
 
 describe('Send notification', () => {
   it('deve ser permitido enviar uma notificacao', async () => {
