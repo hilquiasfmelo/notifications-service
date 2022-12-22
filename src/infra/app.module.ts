@@ -5,4 +5,4 @@ import { HttpModule } from './http/http.module';
 @Module({
   imports: [HttpModule, DatabaseModule],
 })
-export class AppModule { }
+export class AppModule {}

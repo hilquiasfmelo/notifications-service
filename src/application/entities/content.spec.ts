@@ -14,4 +14,4 @@ describe('Notification content', () => {
   it('nao deve ser possivel criar o conteudo da notificacao com mais de 240 caracteres', () => {
     expect(() => new Content('abc'.repeat(241))).toThrow();
   });
-})
+});

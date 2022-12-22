@@ -1,26 +1,27 @@
-import { randomUUID } from 'node:crypto'
+import { randomUUID } from 'node:crypto';
 
-import { Replace } from "src/helpers/replace";
-import { Content } from "./content";
+import { Replace } from 'src/helpers/replace';
+import { Content } from './content';
 
 export interface NotificationProps {
   recipientId: string;
   content: Content;
   category: string;
   readAt?: Date | null;
+  canceledAt?: Date | null;
   createdAt: Date;
 }
 
 export class Notification {
   private _id: string;
-  private props: NotificationProps
+  private props: NotificationProps;
 
   constructor(params: Replace<NotificationProps, { createdAt?: Date }>) {
     this._id = randomUUID();
     this.props = {
       ...params,
-      createdAt: params.createdAt ?? new Date()
-    }
+      createdAt: params.createdAt ?? new Date(),
+    };
   }
 
   public get id() {
@@ -28,39 +29,46 @@ export class Notification {
   }
 
   public set recipientId(recipientId: string) {
-    this.props.recipientId = recipientId
+    this.props.recipientId = recipientId;
   }
 
   public get recipientId(): string {
-    return this.props.recipientId
+    return this.props.recipientId;
   }
 
   public set content(content: Content) {
-    this.props.content = content
+    this.props.content = content;
   }
 
   public get content(): Content {
-    return this.props.content
+    return this.props.content;
   }
 
   public set category(category: string) {
-    this.props.category = category
+    this.props.category = category;
   }
 
   public get category(): string {
-    return this.props.category
+    return this.props.category;
   }
 
   public set readAt(readAt: Date | undefined | null) {
-    this.props.readAt = readAt
+    this.props.readAt = readAt;
   }
 
   public get readAt(): Date | undefined | null {
-    return this.props.readAt
+    return this.props.readAt;
+  }
+
+  public cancel() {
+    return (this.props.canceledAt = new Date());
+  }
+
+  public get canceledAt(): Date | undefined | null {
+    return this.props.canceledAt;
   }
 
   public get createdAt(): Date {
-    return this.props.createdAt
+    return this.props.createdAt;
   }
 }
-

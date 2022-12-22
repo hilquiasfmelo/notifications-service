@@ -1,5 +1,5 @@
 import { Content } from './content';
-import { Notification } from './notification'
+import { Notification } from './notification';
 
 describe('Notification', () => {
   it('deve ser possivel criar uma notificacao', () => {
@@ -11,5 +11,4 @@ describe('Notification', () => {
 
     expect(notification).toBeTruthy();
   });
-
-})
+});
